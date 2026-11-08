@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="font-poppins bg-white">
+    <div>
+        <!-- Header -->
+        <header class="w-full h-20 flex justify-between items-center px-12 border-b border-gray-100">
+            <div class="w-fit p-2 flex items-center gap-2">
+                <i data-lucide="leaf" class="w-10 h-10 text-green-500"></i>
+                <div>
+                    <h1 class="text-2xl font-bold leading-none">Eco <span class="text-green-500">AI</span></h1>
+                    <small class="text-gray-400 font-semibold text-xs">Small choices. A cleaner planet</small>
+                </div>
+            </div>
+            <nav class="w-fit h-full flex gap-8 items-center font-medium">
+                <a href="#" class="text-gray-700 hover:text-green-500 transition">Home</a>
+                <a href="#" class="text-gray-700 hover:text-green-500 transition">How It Works</a>
+                <a href="#" class="text-gray-700 hover:text-green-500 transition">About</a>
+            </nav>
+
+            <a href="/dashboard"
+                class="bg-green-500 text-white font-medium flex items-center gap-2 px-6 py-2.5 rounded-full hover:bg-green-600 transition shadow-sm">
+                start now <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </header>
+
+        <!-- Main Content -->
+        <main class="w-full h-fit">
+            <!-- Hero Section -->
+            <section
+                class="w-full h-[80vh] bg-gradient-to-br from-[#D1FAE5] to-[#ECFDF5] flex items-center justify-between px-12">
+                <article class="w-2/5 h-full flex flex-col justify-center gap-4">
+                    <h1 class="text-5xl font-extrabold leading-tight text-gray-900">Not Sure What to Do With <span
+                            class="text-green-800">That?</span></h1>
+                    <p class="text-gray-600 text-lg leading-relaxed">Eco AI helps you identify items and give you
+                        simple, clear advice on how to dispose of them responsibly. Let's keep our planet green.</p>
+                    <button
+                        class="bg-green-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-green-600 transition w-fit mt-2 flex items-center gap-2 shadow-md">
+                        Ask Eco AI <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </article>
+                <div class="w-1/2 h-full flex items-center justify-center">
+                    <!-- Replace with your hero graphic path -->
+                    <div
+                        class="w-96 h-96 bg-green-200/50 rounded-full flex items-center justify-center text-7xl shadow-inner">
+                        🌿🤖
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="w-full h-fit bg-[#ECFDF5] flex flex-col items-center gap-4 px-12 py-16">
+                <h1 class="text-4xl font-extrabold text-gray-900">How It Works</h1>
+                <p class="text-gray-600 text-lg mb-8">Eco AI makes it easy to make environmentally friendly choices.</p>
+                <div class="w-full h-max grid grid-cols-4 gap-6">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3 border border-green-100">
+                        <i data-lucide="camera" class="w-10 h-10 text-green-500 mb-1"></i>
+                        <h2 class="text-lg font-bold text-gray-900">Take a Photo</h2>
+                        <p class="text-sm text-gray-500">Snap a picture of the item you want to dispose of.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3 border border-green-100">
+                        <i data-lucide="search" class="w-10 h-10 text-green-500 mb-1"></i>
+                        <h2 class="text-lg font-bold text-gray-900">Identify the Item</h2>
+                        <p class="text-sm text-gray-500">Eco AI will analyze the photo and identify the item.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3 border border-green-100">
+                        <i data-lucide="lightbulb" class="w-10 h-10 text-green-500 mb-1"></i>
+                        <h2 class="text-lg font-bold text-gray-900">Get Disposal Advice</h2>
+                        <p class="text-sm text-gray-500">Receive simple, clear instructions on how to dispose
+                            responsibly.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3 border border-green-100">
+                        <i data-lucide="heart" class="w-10 h-10 text-green-500 mb-1"></i>
+                        <h2 class="text-lg font-bold text-gray-900">Make a Difference</h2>
+                        <p class="text-sm text-gray-500">By following advice, you contribute to a cleaner planet.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer / Try It Out Section -->
+        <footer class="w-full h-fit py-16 px-12 bg-white">
+            <div class="max-w-3xl flex flex-col gap-6">
+                <h1 class="text-4xl font-extrabold text-gray-900">Try It Out</h1>
+                <div class="w-full flex flex-col gap-4">
+                    <div class="w-full h-fit rounded-lg flex items-center gap-4">
+                        <div
+                            class="w-full flex items-center justify-between text-gray-500 border border-gray-200 shadow-sm px-6 py-4 rounded-xl bg-gray-50/50 hover:border-green-500 transition">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="camera" class="w-5 h-5 text-green-500"></i>
+                                <span class="text-sm text-gray-400">Take a photo of the item</span>
+                            </div>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg transition">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full flex items-center gap-2 flex-wrap pt-2">
+                        <span class="text-xs text-gray-400 font-medium mr-2">Suggestions:</span>
+                        <span
+                            class="w-max px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full border border-green-100 cursor-pointer hover:bg-green-100 transition">plastic
+                            bottle</span>
+                        <span
+                            class="w-max px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full border border-green-100 cursor-pointer hover:bg-green-100 transition">food
+                            packaging</span>
+                        <span
+                            class="w-max px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full border border-green-100 cursor-pointer hover:bg-green-100 transition">battery</span>
+                        <span
+                            class="w-max px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full border border-green-100 cursor-pointer hover:bg-green-100 transition">old
+                            clothes</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

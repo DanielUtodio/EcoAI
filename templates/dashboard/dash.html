@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoAI Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Markdown and HTML Sanitizer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-white">
+
+    <div class="w-full h-screen flex overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside class="hidden md:flex w-64 h-full flex-col items-center border-r border-gray-200 p-4 shrink-0 bg-white">
+
+            <!-- Logo -->
+            <h1 class="text-2xl font-bold text-[#047857] flex items-center gap-2 mb-6">
+                <i data-lucide="leaf" class="w-8 h-8 text-[#047857]"></i>
+                EcoAI
+            </h1>
+
+            <!-- New Chat -->
+            <button id="newChatButton"
+                class="w-full max-w-[180px] flex items-center justify-center gap-2 bg-[#047857] text-white p-3 rounded-lg hover:bg-[#065f46] transition">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+                New Chat
+            </button>
+
+            <!-- Navigation -->
+            <nav class="flex flex-col items-center gap-6 w-full mt-10">
+
+                <a href="#" class="min-w-[160px] flex items-center justify-start p-2 gap-2 text-[#047857] font-medium">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                    Dashboard
+                </a>
+
+                <a href="#"
+                    class="min-w-[160px] flex items-center justify-start p-2 gap-2 text-gray-600 hover:text-[#047857]">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                    Explore
+                </a>
+
+                <a href="#"
+                    class="min-w-[160px] flex items-center justify-start p-2 gap-2 text-gray-600 hover:text-[#047857]">
+                    <i data-lucide="user" class="w-5 h-5"></i>
+                    Profile
+                </a>
+
+                <a href="#"
+                    class="min-w-[160px] flex items-center justify-start p-2 gap-2 text-gray-600 hover:text-[#047857]">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    Settings
+                </a>
+
+            </nav>
+
+            <!-- Sidebar Bottom -->
+            <div class="mt-auto text-sm text-gray-400 text-center">
+                Small actions. Greener planet.
+            </div>
+
+        </aside>
+
+
+        <!-- Main Section -->
+        <section class="flex-1 h-full flex flex-col min-w-0">
+
+            <!-- Header -->
+            <header
+                class="w-full h-16 flex items-center justify-between px-4 md:px-6 border-b border-gray-200 shrink-0">
+
+                <div class="flex items-center gap-2">
+                    <i data-lucide="leaf" class="w-6 h-6 text-[#047857]"></i>
+                    <h1 class="text-xl font-bold text-[#047857]">
+                        EcoAI
+                    </h1>
+                </div>
+
+                <div class="flex items-center gap-4">
+
+                    <p class="hidden sm:block text-[#047857] font-medium">
+                        Hello Daniel!
+                    </p>
+
+                    <i data-lucide="bell" class="w-6 h-6 text-[#047857]"></i>
+
+                </div>
+
+            </header>
+
+
+            <!-- Chat Area -->
+            <main id="chatMessages" class="flex-1 p-4 md:p-6 overflow-y-auto">
+
+                <div class="max-w-4xl mx-auto flex flex-col gap-6">
+
+                    <!-- Welcome Message -->
+                    <div class="flex items-start gap-4">
+
+                        <div class="shrink-0 border-2 border-[#047857] p-2 rounded-full">
+                            <i data-lucide="leaf" class="w-5 h-5 text-[#047857]"></i>
+                        </div>
+
+                        <div class="max-w-3xl bg-[#ECFDF5] text-gray-700 p-4 rounded-lg">
+
+                            <p class="font-semibold text-[#047857] mb-2">
+                                Welcome to EcoAI! 🌱
+                            </p>
+
+                            <p class="leading-7">
+                                Not sure what to do with your waste? Tell me what you want to dispose of,
+                                and I'll help you find a practical and environmentally friendly solution.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Quick Suggestions -->
+                    <div id="quickSuggestions" class="ml-0 md:ml-14">
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            What would you like help with?
+                        </p>
+
+                        <div class="flex flex-wrap gap-3">
+
+                            <button type="button" data-item="How should I dispose of a plastic bottle?"
+                                class="suggestion-btn flex items-center gap-2 border border-gray-200 hover:border-[#047857] hover:bg-[#ECFDF5] px-4 py-3 rounded-xl text-sm text-gray-700 transition">
+                                <i data-lucide="bottle-wine" class="w-4 h-4 text-[#047857]"></i>
+                                Plastic bottle
+                            </button>
+
+                            <button type="button" data-item="How should I dispose of food packaging?"
+                                class="suggestion-btn flex items-center gap-2 border border-gray-200 hover:border-[#047857] hover:bg-[#ECFDF5] px-4 py-3 rounded-xl text-sm text-gray-700 transition">
+                                <i data-lucide="package" class="w-4 h-4 text-[#047857]"></i>
+                                Food packaging
+                            </button>
+
+                            <button type="button" data-item="How can I safely dispose of a used battery?"
+                                class="suggestion-btn flex items-center gap-2 border border-gray-200 hover:border-[#047857] hover:bg-[#ECFDF5] px-4 py-3 rounded-xl text-sm text-gray-700 transition">
+                                <i data-lucide="battery" class="w-4 h-4 text-[#047857]"></i>
+                                Battery
+                            </button>
+
+                            <button type="button" data-item="What can I do with my old clothes?"
+                                class="suggestion-btn flex items-center gap-2 border border-gray-200 hover:border-[#047857] hover:bg-[#ECFDF5] px-4 py-3 rounded-xl text-sm text-gray-700 transition">
+                                <i data-lucide="shirt" class="w-4 h-4 text-[#047857]"></i>
+                                Old clothes
+                            </button>
+
+                            <button type="button" data-item="How should I dispose of old electronics?"
+                                class="suggestion-btn flex items-center gap-2 border border-gray-200 hover:border-[#047857] hover:bg-[#ECFDF5] px-4 py-3 rounded-xl text-sm text-gray-700 transition">
+                                <i data-lucide="laptop" class="w-4 h-4 text-[#047857]"></i>
+                                Electronics
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+
+            <!-- Message Input -->
+            <footer class="border-t border-gray-200 p-4 md:p-6 shrink-0 bg-white">
+
+                <div class="max-w-4xl mx-auto">
+
+                    <form id="chatForm" class="flex items-end gap-3">
+
+                        <textarea id="messageInput" rows="1"
+                            placeholder="Describe something you want to recycle or dispose of..."
+                            class="flex-1 resize-none border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-[#047857] focus:border-transparent"></textarea>
+
+                        <button id="sendButton" type="submit"
+                            class="bg-[#047857] hover:bg-[#065f46] text-white p-4 rounded-xl transition disabled:opacity-50"
+                            title="Send message">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+
+                    </form>
+
+                    <p class="text-xs text-gray-400 text-center mt-3">
+                        EcoAI helps you make more environmentally responsible choices.
+                    </p>
+
+                </div>
+
+            </footer>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+        const chatForm = document.getElementById("chatForm");
+        const messageInput = document.getElementById("messageInput");
+        const chatMessages = document.getElementById("chatMessages");
+        const sendButton = document.getElementById("sendButton");
+        const newChatButton = document.getElementById("newChatButton");
+        const quickSuggestions = document.getElementById("quickSuggestions");
+        let chatId = null;
+
+        function displayMessage(message, sender) {
+            const row = document.createElement("div");
+            if (sender === "user") {
+                row.className = "flex justify-end";
+                row.innerHTML = `<div class="max-w-[85%] md:max-w-2xl bg-[#047857] text-white p-4 rounded-lg whitespace-pre-wrap break-words"></div>`;
+                row.querySelector("div").textContent = message;
+            } else {
+                row.className = "flex items-start gap-4";
+                const bubbleClasses = "max-w-3xl bg-[#ECFDF5] text-gray-700 p-4 rounded-lg break-words [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-4 [&_h2]:text-lg [&_h2]:font-bold [&_h2]:mt-4 [&_h3]:text-base [&_h3]:font-bold [&_h3]:text-[#047857] [&_h3]:mt-4 [&_p]:leading-7 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-3 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-3 [&_li]:mb-2 [&_strong]:font-bold [&_strong]:text-[#065f46] [&_hr]:my-4 [&_hr]:border-green-200";
+                row.innerHTML = `<div class="shrink-0 border-2 border-[#047857] p-2 rounded-full"><i data-lucide="leaf" class="w-5 h-5 text-[#047857]"></i></div><div class="${bubbleClasses}"></div>`;
+                row.querySelector("div:last-child").innerHTML = DOMPurify.sanitize(marked.parse(message));
+            }
+            chatMessages.firstElementChild.appendChild(row);
+            lucide.createIcons();
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showLoading() {
+            const loading = document.createElement("div");
+            loading.id = "loadingMessage";
+            loading.className = "flex items-start gap-4";
+            loading.innerHTML = `<div class="shrink-0 border-2 border-[#047857] p-2 rounded-full"><i data-lucide="leaf" class="w-5 h-5 text-[#047857]"></i></div><div class="bg-[#ECFDF5] text-gray-500 p-4 rounded-lg">EcoAI is thinking...</div>`;
+            chatMessages.firstElementChild.appendChild(loading);
+            lucide.createIcons();
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeLoading() {
+            document.getElementById("loadingMessage")?.remove();
+        }
+
+        async function sendMessage(message) {
+            if (!message || sendButton.disabled) return;
+            if (quickSuggestions) quickSuggestions.remove();
+            displayMessage(message, "user");
+            messageInput.value = "";
+            messageInput.style.height = "auto";
+            sendButton.disabled = messageInput.disabled = true;
+            showLoading();
+
+            try {
+                const res = await fetch("/api/eco-chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message, chat_id: chatId })
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || "Something went wrong.");
+                if (data.chat_id) chatId = data.chat_id;
+                displayMessage(data.reply, "ai");
+            } catch (error) {
+                console.error("EcoAI error:", error);
+                displayMessage("Sorry, I couldn't process your request. Please try again.", "ai");
+            } finally {
+                removeLoading();
+                sendButton.disabled = messageInput.disabled = false;
+                messageInput.focus();
+            }
+        }
+
+        chatForm.addEventListener("submit", e => { e.preventDefault(); sendMessage(messageInput.value.trim()); });
+
+        document.querySelectorAll(".suggestion-btn").forEach(btn => {
+            btn.addEventListener("click", () => sendMessage(btn.dataset.item));
+        });
+
+        newChatButton.addEventListener("click", async () => {
+            newChatButton.disabled = true;
+            try {
+                const res = await fetch("/api/new-chat", { method: "POST" });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || "Could not start a new chat.");
+                chatId = data.chat_id;
+                chatMessages.innerHTML = `<div class="max-w-4xl mx-auto flex flex-col gap-6"><div class="flex items-start gap-4"><div class="shrink-0 border-2 border-[#047857] p-2 rounded-full"><i data-lucide="leaf" class="w-5 h-5 text-[#047857]"></i></div><div class="max-w-3xl bg-[#ECFDF5] text-gray-700 p-4 rounded-lg"><p class="font-semibold text-[#047857] mb-2">Welcome back to EcoAI! 🌱</p><p class="leading-7">What would you like help recycling, reusing, or disposing of today?</p></div></div></div>`;
+                lucide.createIcons();
+            } catch (error) {
+                console.error("New chat error:", error);
+                alert("Could not start a new chat. Please try again.");
+            } finally {
+                newChatButton.disabled = false;
+            }
+        });
+
+        messageInput.addEventListener("keydown", e => {
+            if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); chatForm.requestSubmit(); }
+        });
+
+        messageInput.addEventListener("input", () => {
+            messageInput.style.height = "auto";
+            messageInput.style.height = messageInput.scrollHeight + "px";
+        });
+
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
