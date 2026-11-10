@@ -15,7 +15,8 @@
 <body class="font-poppins bg-white">
     <div>
         <!-- Header -->
-        <header class="w-full h-20 flex justify-between items-center px-12 border-b border-gray-100">
+        <header
+            class="w-full min-h-20 flex flex-col sm:flex-row justify-between items-center px-6 sm:px-12 py-4 sm:py-0 border-b border-gray-100 gap-4">
             <div class="w-fit p-2 flex items-center gap-2">
                 <i data-lucide="leaf" class="w-10 h-10 text-green-500"></i>
                 <div>
@@ -23,14 +24,14 @@
                     <small class="text-gray-400 font-semibold text-xs">Small choices. A cleaner planet</small>
                 </div>
             </div>
-            <nav class="w-fit h-full flex gap-8 items-center font-medium">
+            <nav class="w-fit h-full flex gap-6 sm:gap-8 items-center font-medium text-sm sm:text-base">
                 <a href="#" class="text-gray-700 hover:text-green-500 transition">Home</a>
                 <a href="#" class="text-gray-700 hover:text-green-500 transition">How It Works</a>
                 <a href="#" class="text-gray-700 hover:text-green-500 transition">About</a>
             </nav>
 
             <a href="/dashboard"
-                class="bg-green-500 text-white font-medium flex items-center gap-2 px-6 py-2.5 rounded-full hover:bg-green-600 transition shadow-sm">
+                class="bg-green-500 text-white font-medium flex items-center gap-2 px-6 py-2.5 rounded-full hover:bg-green-600 transition shadow-sm text-sm sm:text-base">
                 start now <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </header>
@@ -39,31 +40,36 @@
         <main class="w-full h-fit">
             <!-- Hero Section -->
             <section
-                class="w-full h-[80vh] bg-gradient-to-br from-[#D1FAE5] to-[#ECFDF5] flex items-center justify-between px-12">
-                <article class="w-2/5 h-full flex flex-col justify-center gap-4">
-                    <h1 class="text-5xl font-extrabold leading-tight text-gray-900">Not Sure What to Do With <span
-                            class="text-green-800">That?</span></h1>
-                    <p class="text-gray-600 text-lg leading-relaxed">Eco AI helps you identify items and give you
+                class="w-full min-h-[calc(100vh-5rem)] md:h-[80vh] bg-gradient-to-br from-[#D1FAE5] to-[#ECFDF5] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-12 md:py-0 gap-8">
+                <article
+                    class="w-full md:w-2/5 h-full flex flex-col justify-center items-center md:items-start text-center md:text-left gap-4">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900">Not Sure What to Do With
+                        <span class="text-green-800">That?</span></h1>
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed">Eco AI helps you identify items and
+                        give you
                         simple, clear advice on how to dispose of them responsibly. Let's keep our planet green.</p>
                     <button
                         class="bg-green-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-green-600 transition w-fit mt-2 flex items-center gap-2 shadow-md">
                         Ask Eco AI <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </article>
-                <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="w-full md:w-1/2 h-full flex items-center justify-center">
                     <!-- Replace with your hero graphic path -->
                     <div
-                        class="w-96 h-96 bg-green-200/50 rounded-full flex items-center justify-center text-7xl shadow-inner">
-                        🌿🤖
+                        class="w-72 h-72 sm:w-96 sm:h-96 bg-green-200/50 rounded-full flex items-center justify-center text-7xl shadow-inner overflow-hidden">
+                        <img src="../static/EcoAi Hero.png" alt="Eco AI Hero"
+                            class="w-full h-full object-cover md:-translate-x-24" />
+                        <!-- 🌿🤖 -->
                     </div>
                 </div>
             </section>
 
             <!-- How It Works Section -->
-            <section class="w-full h-fit bg-[#ECFDF5] flex flex-col items-center gap-4 px-12 py-16">
-                <h1 class="text-4xl font-extrabold text-gray-900">How It Works</h1>
-                <p class="text-gray-600 text-lg mb-8">Eco AI makes it easy to make environmentally friendly choices.</p>
-                <div class="w-full h-max grid grid-cols-4 gap-6">
+            <section class="w-full h-fit bg-[#ECFDF5] flex flex-col items-center gap-4 px-6 sm:px-12 py-16">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center">How It Works</h1>
+                <p class="text-gray-600 text-base sm:text-lg text-center mb-8">Eco AI makes it easy to make
+                    environmentally friendly choices.</p>
+                <div class="w-full h-max grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Step 1 -->
                     <div
                         class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3 border border-green-100">
@@ -101,18 +107,19 @@
         </main>
 
         <!-- Footer / Try It Out Section -->
-        <footer class="w-full h-fit py-16 px-12 bg-white">
-            <div class="max-w-3xl flex flex-col gap-6">
-                <h1 class="text-4xl font-extrabold text-gray-900">Try It Out</h1>
+        <footer class="w-full h-fit py-16 px-6 sm:px-12 bg-white">
+            <div class="max-w-3xl flex flex-col gap-6 mx-auto md:mx-0">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Try It Out</h1>
                 <div class="w-full flex flex-col gap-4">
                     <div class="w-full h-fit rounded-lg flex items-center gap-4">
                         <div
-                            class="w-full flex items-center justify-between text-gray-500 border border-gray-200 shadow-sm px-6 py-4 rounded-xl bg-gray-50/50 hover:border-green-500 transition">
+                            class="w-full flex items-center justify-between text-gray-500 border border-gray-200 shadow-sm px-4 sm:px-6 py-4 rounded-xl bg-gray-50/50 hover:border-green-500 transition gap-2">
                             <div class="flex items-center gap-3">
-                                <i data-lucide="camera" class="w-5 h-5 text-green-500"></i>
-                                <span class="text-sm text-gray-400">Take a photo of the item</span>
+                                <i data-lucide="camera" class="w-5 h-5 text-green-500 shrink-0"></i>
+                                <span class="text-xs sm:text-sm text-gray-400">Take a photo of the item</span>
                             </div>
-                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg transition">
+                            <button
+                                class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg transition shrink-0">
                                 <i data-lucide="send" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -127,15 +134,13 @@
                             packaging</span>
                         <span
                             class="w-max px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full border border-green-100 cursor-pointer hover:bg-green-100 transition">battery</span>
-                        <span
-                            class="w-max px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full border border-green-100 cursor-pointer hover:bg-green-100 transition">old
-                            clothes</span>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
     </script>
 </body>
