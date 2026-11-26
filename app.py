@@ -18,7 +18,7 @@ load_dotenv()
 app = Flask(__name__)
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-3.5-flash-lite"
+    model="gemini-3.1-flash-lite"
 )
 
 # File to persist chat history across server restarts
